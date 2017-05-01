@@ -1,0 +1,13 @@
+.errors{
+	color:red;
+	background-color: #f4f4f4;
+	padding: 20px;
+}
+#errors{
+    color:black;
+    background-color: rgba(200,0,0,0.5);
+    padding: 20px;
+    /*opacity:.5;  */
+    font-weight: bold;
+    visibility: hidden;
+}

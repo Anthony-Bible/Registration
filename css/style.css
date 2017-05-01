@@ -1,0 +1,49 @@
+h2 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.container p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.regisFrm input[type="text"], .regisFrm input[type="email"], .regisFrm input[type="password"] {
+    width: 94.5%;
+    padding: 10px;
+    margin: 10px 0;
+    outline: none;
+    color: #000;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+}
+.send-button {
+    text-align: center;
+    margin-top: 20px;
+}
+.send-button input[type="submit"] {
+    padding: 10px 0;
+    width: 60%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    color: #FFF;
+    background-color: #2196F3;
+    cursor: pointer;
+}
+.send-button input[type="submit"]:hover {
+    background-color: #055d54;
+}
+#errors{
+    color:black;
+    background-color: rgba(200,0,0,0.5);
+    padding: 20px;
+    /*opacity:.5;  */
+    font-weight: bold;
+    visibility: hidden;
+}
+a.logout{float: right;}
+p.success{color:#34A853;}
+p.error{color:#EA4335;}
