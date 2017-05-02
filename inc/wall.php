@@ -11,13 +11,17 @@ error_reporting(E_ALL);
 <?php 
 include 'session.php';
 
+
 $sess= new session();
 if($sess->checkLogin()){
 ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
@@ -28,7 +32,7 @@ if($sess->checkLogin()){
  ?>
 
 <div class="container">
-	<form method="POST" action="" class="form-horizontal">
+	<form id ="postForm" action="post.php" class="form-horizontal">
   <div class="form-group">
     <label class="control-label col-sm-2" for="content">Content:</label>
     <div class="col-sm-10">
@@ -42,8 +46,12 @@ if($sess->checkLogin()){
     </div>
   </div>
 </form>
+<div id="messages">
+	<div class="Messagecontainer "></div>
+</div>
 
 </div>
+<script src="js/wall.js"></script>
 	
 </body>
 </html>

@@ -7,13 +7,13 @@ if(session_status() == 1){
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-if(isset($_POST['content'])){
+if(isset($_POST['id'])){
 	$db = new database;
-	$content=$_POST['content'];
-	$db ->createPost($content);
+	$id=$_POST['id'];
+	$db ->getNewMessages($id);
 }else{
 	echo "you aren't allowed to be here";
-	redirect("../index.php");
+	// redirect("../index.php");
 }
 
 ?>
