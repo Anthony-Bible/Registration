@@ -62,7 +62,7 @@ $( "#postForm" ).submit(function( event ) {
             id = $(this).find('id').text();
 
             response = '<div class="row"><div class="container"> <div class="Messagecontainer "><div class="id" hidden>'+id+'</div><div class="username col-sm-6"> '+ name +' </div>'+ '<span class="float-right"><div class="time col-sm-6">' + time +'</div></span><br /><div class="content">'+ content + 
-                                                      '</div><div class="icons"><i class="likeIcon glyphicon glyphicon-heart" /> <i class="retweetsIcon glyphicon glyphicon-retweet" /></div></div></div></div>';
+                                                      '</div><div class="icons"><i class="likeIcon glyphicon glyphicon-heart" /> <div class="faveCount"></div><i class="retweetsIcon glyphicon glyphicon-retweet" /></div></div></div></div>';
             $messageDiv.append(response);
         
      });
@@ -79,8 +79,36 @@ $( "#postForm" ).submit(function( event ) {
     ,5000);
  $(document).on('click', '.likeIcon', function(){ 
   /* body... */
+  //get the message container of the like clicked
   likeParent =$(this).parents(".Messagecontainer");
-  alert(likeParent.find("div.id").text());
+
+  //get the id of the "tweet" that was liked
+  likeId = likeParent.find("div.id").text();
+  try 
+     {
+       posting = $.post( "addLike.php", {id:likeId}, function(data, status){
+          var xmlDoc = $.parseXML( data ); 
+
+      $xml = $(xmlDoc);
+
+       $person = $xml.find("response");
+       $messageDiv = $("#messages");
+       $person.each(function(){
+        // alert(id);
+
+           likes = $(this).find('totalLikes').text();
+           likeParent.find("div.faveCount").html(likes);            
+           
+        
+     });
+    });
+            
+            
+     } 
+     catch(e) 
+     { 
+     $("#messages").append(e); 
+     }
 });
 
 
