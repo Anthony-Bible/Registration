@@ -33,38 +33,37 @@ $( "#postForm" ).submit(function( event ) {
 		});
     });
 });
-$(document).ready(function(){
-  setInterval(requestNewMessages(),2000);
-  var id = -1;
+  id = 1;
 
-
- function requestNewMessages() 
+ var run= setInterval( function requestNewMessages() 
 { 
  // retrieve the username and color from the page 
 //  var currentUser = document.getElementById("userName").value; 
   //  var currentColor = document.getElementById("color").value; 
    // only continue if xmlHttpGetMessages isn't void 
-  id=1;
+  // id=id;
+  // id=1;
    
      try 
      {
-      var posting = $.post( "messages.php", {id:id}, function(data, status){
+       posting = $.post( "messages.php", {id:id}, function(data, status){
           var xmlDoc = $.parseXML( data ); 
 
-      var $xml = $(xmlDoc);
+      $xml = $(xmlDoc);
 
-      var $person = $xml.find("wallMessage");
-      var $messageDiv = $("#messages");
-      $person.each(function(){
+       $person = $xml.find("wallMessage");
+       $messageDiv = $("#messages");
+       $person.each(function(){
+        // alert(id);
 
-        var name = $(this).find('userId').text();
-        var time = $(this).find('time').text();
-        var content = $(this).find('content').text();
-        var id = $(this).find('id').text();
-        var response = '<div class="row"><div class="container"> '+ name +' '+ '<span class="float-right">' + time +'</span><br />'+ content + '</div></div>';
+            name = $(this).find('user_id').text();
+            time = $(this).find('time').text();
+            content = $(this).find('content').text();
+            id = $(this).find('id').text();
+
+            response = '<div class="row"><div class="container"> <div class="Messagecontainer "><div class="id" hidden>'+id+'</div><div class="username col-sm-6"> '+ name +' </div>'+ '<span class="float-right"><div class="time col-sm-6">' + time +'</div></span><br /><div class="content">'+ content + 
+                                                      '</div><div class="icons"><i class="likeIcon glyphicon glyphicon-heart" /> <i class="retweetsIcon glyphicon glyphicon-retweet" /></div></div></div></div>';
             $messageDiv.append(response);
-
-
         
      });
     });
@@ -73,10 +72,16 @@ $(document).ready(function(){
      } 
      catch(e) 
      { 
-     displayError(e.toString()); 
+     $("#messages").append(e); 
+     }
+    return id; 
      } 
-     } 
-    
+    ,5000);
+ $(document).on('click', '.likeIcon', function(){ 
+  /* body... */
+  likeParent =$(this).parents(".Messagecontainer");
+  alert(likeParent.find("div.id").text());
 });
- 
-  
+
+
+

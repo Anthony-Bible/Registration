@@ -11,3 +11,26 @@
     font-weight: bold;
     visibility: hidden;
 }
+.Messagecontainer{
+	background:rgba(151,151,151,0.2);
+	border-bottom: 1px dotted black;
+	width: 50%;
+	margin: 20px auto;
+	padding:30px;
+}
+.time{
+	text-align:right;
+	font-style:italic;
+}
+.content{
+	text-align:center;
+	font-size:15px;
+	padding-top: 50px;
+}
+.retweetsIcon{
+	text-align: center;
+	cursor:pointer;
+}
+.likeIcon{
+	cursor:pointer;
+}
