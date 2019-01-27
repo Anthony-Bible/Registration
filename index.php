@@ -17,16 +17,16 @@ $sess= new session();
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
 </head>
-<body >
-<?php 
-include_once 'inc/navbar.php';
-// include_once 'inc/session.php';
-// include_once 'inc/functions.php';
+<body>
+	<?php 
+	include_once 'inc/navbar.php';
+
 if($sess->checkLogin()){
 	redirect('inc/wall.php');
 }
 else{
  ?>
+
 
 
 
@@ -44,7 +44,7 @@ else{
 											<!-- This is where any login errors will go through ajax -->
 										</div>
 </div>
-<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>

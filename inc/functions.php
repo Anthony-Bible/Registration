@@ -1,7 +1,13 @@
 <?php
 
-
+// include_once 'mail/contact.php';
 include_once 'database.php'; 
+include_once 'mail/contact.php';
+// include_once 'mail/test2.php';
+
+
+error_reporting(E_ALL | E_WARNING | E_NOTICE);
+ini_set('display_errors', TRUE);
 $db = new database();
 function redirect($place)
 {
@@ -97,6 +103,17 @@ function checkPhone($phone,$db)
 
 	
 
+}
+function mailVerify($usertoken,$firstname,$email){
+	$secondEmail=urlencode($email);
+	$_SESSION['email']=$email;
+	$_SESSION['encodedEmail']=$secondEmail;
+
+	$_SESSION['firstName']=$firstname;
+	$_SESSION['token']=$usertoken;
+	sendEmail();
+	// testInclude3();
+	// testInclude2();
 }
 
  ?>

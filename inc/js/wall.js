@@ -60,9 +60,10 @@ $( "#postForm" ).submit(function( event ) {
             time = $(this).find('time').text();
             content = $(this).find('content').text();
             id = $(this).find('id').text();
+            likesCount = $(this).find('likesCount').text();
 
             response = '<div class="row"><div class="container"> <div class="Messagecontainer "><div class="id" hidden>'+id+'</div><div class="username col-sm-6"> '+ name +' </div>'+ '<span class="float-right"><div class="time col-sm-6">' + time +'</div></span><br /><div class="content">'+ content + 
-                                                      '</div><div class="icons"><i class="likeIcon glyphicon glyphicon-heart" /> <div class="faveCount"></div><i class="retweetsIcon glyphicon glyphicon-retweet" /></div></div></div></div>';
+                                                      '</div><div class="icons"><i class="likeIcon glyphicon glyphicon-heart" /> <div class="faveCount">'+likesCount+'</div><i class="retweetsIcon glyphicon glyphicon-retweet" /></div></div></div></div>';
             $messageDiv.append(response);
         
      });
@@ -77,14 +78,11 @@ $( "#postForm" ).submit(function( event ) {
     return id; 
      } 
     ,5000);
- $(document).on('click', '.likeIcon', function(){ 
-  /* body... */
-  //get the message container of the like clicked
-  likeParent =$(this).parents(".Messagecontainer");
 
-  //get the id of the "tweet" that was liked
-  likeId = likeParent.find("div.id").text();
-  try 
+
+  function addLike(likeId){
+
+    try 
      {
        posting = $.post( "addLike.php", {id:likeId}, function(data, status){
           var xmlDoc = $.parseXML( data ); 
@@ -109,6 +107,17 @@ $( "#postForm" ).submit(function( event ) {
      { 
      $("#messages").append(e); 
      }
+
+  }
+ $(document).on('click', '.likeIcon', function(){ 
+  /* body... */
+  //get the message container of the like clicked
+  likeParent =$(this).parents(".Messagecontainer");
+
+  //get the id of the "tweet" that was liked
+  likeId = likeParent.find("div.id").text();
+  addLike(likeId)
+  
 });
 
 
