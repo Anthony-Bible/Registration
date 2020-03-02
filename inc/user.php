@@ -7,10 +7,10 @@
  * @license   http://www.codexworld.com/license
  */
 class User{
-    private $dbHost     = getenv('twitterdbhost');
-    private $dbUsername = getenv('twtterdbuser'); 
-    private $dbPassword = getenv('twitterdbpass'); 
-    private $dbName     = getenv('twitterdbname'); 
+//    private $dbHost     = getenv('twitterdbhost');
+//    private $dbUsername = getenv('twtterdbuser'); 
+//    private $dbPassword = getenv('twitterdbpass'); 
+//    private $dbName     = getenv('twitterdbname'); 
     private $userTbl    = "users";
     
     public function __construct(){
