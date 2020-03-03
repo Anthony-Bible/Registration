@@ -1,6 +1,6 @@
 <?php 
 include_once 'functions.php';
-include_once 'database.php';
+require_once 'database.php';
 $password=$_POST['password'];
 $username=strtolower($_POST['username']);
 $db = new database();

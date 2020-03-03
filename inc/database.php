@@ -4,6 +4,10 @@
            "http://www.w3.org/Math/DTD/mathml2/mathml2.dtd" >
 <?php 
 
+	require '../vendor/autoload.php';
+     	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
+	$dotenv->load();   
+
 echo "<response>";
 
 if(session_status() == 1){
@@ -23,12 +27,10 @@ class database{
     //connect to the database
   function connect() {
       try {
-        //using a config.ini makes it more secure because it's not uplaoded to github plus it isn't accessable externally
-        $config = parse_ini_file('/var/www/private/config.ini');
-        $user=$config['username'];
-        $pass = $config['password'];
-        $dbname=$config['dbname'];
-        $servername=$config['servername'];
+        $user=getenv('TWITTERDBUSER');
+        $pass = getenv('TWITTERDBPASS');
+        $dbname=getenv('TWITTERDBNAME');
+        $servername=getenv('TWITTERDBHOST');
     //connect ot database using PDO
     $this->conn = new PDO('mysql:host='.$servername.';dbname='.$dbname, $user, $pass,
           [
@@ -38,7 +40,8 @@ class database{
     //$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     //use prepared statements for user submitted information
-    return $this->conn;
+     return $this->conn;
+	
     
     } catch (PDOException $e) {
       echo 'ERROR: '. $e->getMessage();
