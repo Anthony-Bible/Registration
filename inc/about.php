@@ -23,6 +23,6 @@ $sess = new Session();
 include_once 'navbar.php';
 ?>
 <h1>Coming soon</h1>
-<p>I appreciate your interest in this project </p>
+<p>This is the main project i use to display my skills in both Devops and Web development. I use best secure coding practices to create this application. I also use a full CI/CD pipeline to develop, test and deploy this web application.  </p>
 </body>
 </html>
