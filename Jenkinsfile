@@ -5,6 +5,7 @@ pipeline {
       agent any
       steps {
         echo 'push detected'
+        echo 'testing'
       }
     }
 
