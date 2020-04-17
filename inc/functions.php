@@ -1,8 +1,8 @@
 <?php
 
 // include_once 'mail/contact.php';
-include_once(dirname(__FILE__) . "database.php"); 
-include_once(dirname(__FILE__) . "mail/contact.php");
+include_once(dirname(__FILE__) . "/database.php"); 
+include_once(dirname(__FILE__) . "/mail/contact.php");
 // include_once 'mail/test2.php';
 
 

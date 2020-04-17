@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 	<title>Your wall</title>
 
 <?php 
-include(dirname(__FILE__) . "session.php");
+include(dirname(__FILE__) . "/session.php");
 
 
 $sess= new session();

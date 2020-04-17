@@ -1,6 +1,6 @@
 <?php
 
-include(dirname(__FILE__) . "database.php");
+include(dirname(__FILE__) . "/database.php");
 if(session_status() == 1){
 	session_start();
 }

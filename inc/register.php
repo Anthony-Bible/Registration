@@ -4,7 +4,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" async></script>
 
 <?php 
-  include(dirname(__FILE__) . "session.php");
+  include(dirname(__FILE__) . "/session.php");
 $sess= new session();
  ?>
 
