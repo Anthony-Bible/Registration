@@ -1,13 +1,18 @@
 <?php
+
 var $conn;
-var $user = 'twitterclone';
-var $pass = 'dkfji5893fkD*%EDTMCDFj';
+require(dirname(__FILE__) . "/vendor/autoload.php");
+     	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
+	$dotenv->load();   
+
 function connect() {
     try {
-      $user=$user;
-      $pass = $pass;
+      $user=getenv('TWITTERDBUSER');
+      $pass = getenv('TWITTERDBPASS');
+      $dbname=getenv('TWITTERDBNAME');
+      $servername=getenv('TWITTERDBHOST');
   //connect ot database using PDO
-  $conn = new PDO('mysql:host=localhost;dbname=twitterClone', $user, $pass,
+  $conn = new PDO('mysql:host='. $servername.';dbname='. $dbname, $user, $pass,
         [
               PDO::ATTR_PERSISTENT            => true,
               PDO::ATTR_ERRMODE               => PDO::ERRMODE_EXCEPTION

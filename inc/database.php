@@ -4,7 +4,7 @@
            "http://www.w3.org/Math/DTD/mathml2/mathml2.dtd" >
 <?php 
 
-	require '../vendor/autoload.php';
+	require(dirname(__FILE__) . "../vendor/autoload.php");
      	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
 	$dotenv->load();   
 

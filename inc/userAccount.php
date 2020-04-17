@@ -2,11 +2,11 @@
 //start session
 session_start();
 //load and initialize user class
-include 'user.php';
+include(dirname(__FILE__) . "user.php");
 $user = new User();
 if(isset($_POST['signupSubmit'])){
     //check whether user details are empty
-    if(!empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['password']) && !empty($_POST['confirm_password'])){
+    if(!empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['password']) && !empty($_POST['confirm_password'])){
         //password and confirm password comparison
         if($_POST['password'] !== $_POST['confirm_password']){
             $sessData['status']['type'] = 'error';

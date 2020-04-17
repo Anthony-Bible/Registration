@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 	<title>Your wall</title>
 
 <?php 
-include 'session.php';
+include(dirname(__FILE__) . "session.php");
 
 
 $sess= new session();
@@ -28,7 +28,7 @@ if($sess->checkLogin()){
 <body>
 <?php 
 
-	include 'navbar.php';
+	include(dirname(__FILE__) . "navbar.php");
 
  ?>
 

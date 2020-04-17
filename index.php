@@ -2,7 +2,7 @@
 <head>
 	
 <?php 
-  include 'inc/session.php';
+  include(dirname(__FILE__) . "inc/session.php");
 $sess= new session();
  ?>
  <title>The Social Network</title>
@@ -16,9 +16,10 @@ $sess= new session();
 </head>
 <body>
 	<?php 
-	include_once 'inc/navbar.php';
+	include_once(dirname(__FILE__) . "inc/navbar.php");
 
 if($sess->checkLogin()){
+	## DO i need to change this to match the above?
 	redirect('inc/wall.php');
 }
 else{

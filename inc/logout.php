@@ -1,5 +1,5 @@
 <?php 
-include_once 'session.php';
+include_once(dirname(__FILE__) . "session.php");
 $sess = new session();
 $sess->logout();
 include_once 'navbar.php';
