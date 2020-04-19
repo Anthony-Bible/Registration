@@ -28,7 +28,7 @@ if($sess->checkLogin()){
 <body>
 <?php 
 
-	include(dirname(__FILE__) . "navbar.php");
+	include(dirname(__FILE__) . "/navbar.php");
 
  ?>
 
