@@ -56,8 +56,6 @@ function getuserIDFromEmail($email)
     echo "Something went wrong, Please try again later";
   }
 
-$email="anthony+s55b@anthonybible.com";
-$token="999ec56264863d3789d5dc93ef1e3707";
 $link = connect();
 $userId= getuserIDFromEmail($email);
 $sql = "SELECT token, timeCreated from verification where user_id= :id";
